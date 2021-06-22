@@ -31,37 +31,39 @@ export default class Calculator extends Component {
         return (
             <body>
             <div class="container-box">
-            <div class="container">
-                <h1>Math with React!</h1>
-                <div class="math-box">
-                    <form onSubmit={(e) => this.findSum(e)}>
-                        <input type="number"
-                            name="num1"
-                            placeholder="Enter #"
-                            step="any"
-                            value={this.state.num1}
-                            onChange={(e) => this.setNum(e, 'num1')}
-                        />
-                        <select value={this.state.sign} onChange={(e) => this.setSign(e)}>
-                            <option value="+">+</option>
-                            <option value="-">−</option>
-                            <option value="*">×</option>
-                            <option value="/">÷</option>
-                        </select>
+                <div class="container">
+                    <h1>Math with React!</h1>
+                    <div class="math-box">
+                        <form onSubmit={(e) => this.findSum(e)}>
+                            <input type="number"
+                                name="num1"
+                                placeholder="Enter #"
+                                step="any"
+                                value={this.state.num1}
+                                onChange={(e) => this.setNum(e, 'num1')}
+                            />
+                            <select value={this.state.sign} onChange={(e) => this.setSign(e)}>
+                                <option value="+">+</option>
+                                <option value="-">−</option>
+                                <option value="*">×</option>
+                                <option value="/">÷</option>
+                                <option value="**">**</option>
+                                <option value="%">mod</option>
+                            </select>
 
-                        <input type="number"
-                            name="num2"
-                            placeholder="Enter #"
-                            step="any"
-                            value={this.state.num2}
-                            onChange={(e) => this.setNum(e, 'num2')}
-                        />
-                        <button>=</button>
-                    </form>
-                    <h3>Math results go here!</h3>
-                    <span class="answer">{this.state.sum}</span>
+                            <input type="number"
+                                name="num2"
+                                placeholder="Enter #"
+                                step="any"
+                                value={this.state.num2}
+                                onChange={(e) => this.setNum(e, 'num2')}
+                            />
+                            <button>=</button>
+                        </form>
+                        <h3>Math results go here!</h3>
+                        <span class="answer">{this.state.sum}</span>
+                    </div>
                 </div>
-            </div>
             </div>
             </body>
         )
