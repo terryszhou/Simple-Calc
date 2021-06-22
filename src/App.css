@@ -2,6 +2,45 @@
     text-align: center;
 }
 
+body {
+    background-color: black;
+}
+
+.container-box {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: grey;
+    width: 400px;
+    border-radius: 15px;
+}
+
+h1, h3 {
+    color: white;
+}
+
+input {
+    width: 50px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
 input, select {
     margin: 5px;
+}
+
+.math-box {
+    margin-bottom: 10px;
+}
+
+.answer {
+    color: white;
+    font-size: 25px;
 }

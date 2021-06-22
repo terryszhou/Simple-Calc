@@ -29,13 +29,16 @@ export default class Calculator extends Component {
 
     render() {
         return (
+            <body>
+            <div class="container-box">
             <div class="container">
-                <h1>Add with React!</h1>
+                <h1>Math with React!</h1>
                 <div class="math-box">
                     <form onSubmit={(e) => this.findSum(e)}>
                         <input type="number"
                             name="num1"
-                            placeholder="Enter your first number"
+                            placeholder="Enter #"
+                            step="any"
                             value={this.state.num1}
                             onChange={(e) => this.setNum(e, 'num1')}
                         />
@@ -48,7 +51,8 @@ export default class Calculator extends Component {
 
                         <input type="number"
                             name="num2"
-                            placeholder="Enter your second number"
+                            placeholder="Enter #"
+                            step="any"
                             value={this.state.num2}
                             onChange={(e) => this.setNum(e, 'num2')}
                         />
@@ -58,6 +62,8 @@ export default class Calculator extends Component {
                     <span class="answer">{this.state.sum}</span>
                 </div>
             </div>
+            </div>
+            </body>
         )
     }
 }
