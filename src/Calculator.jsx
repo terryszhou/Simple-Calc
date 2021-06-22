@@ -22,7 +22,10 @@ export default class Calculator extends Component {
     }
 
     findSum = (e) => {
-        this.setState({ sum: eval(`${parseFloat(this.state.num1)} ${this.state.sign} ${parseFloat(this.state.num2)}`) })
+        // this.setState({ sum: eval(`${parseFloat(this.state.num1)} ${this.state.sign} ${parseFloat(this.state.num2)}`) })
+        this.setState({ sum: (new Function('return (' + `${parseFloat(this.state.num1)} ${this.state.sign} ${parseFloat(this.state.num2)}` + ')')())
+
+        })
     }
 
     render() {
@@ -36,7 +39,6 @@ export default class Calculator extends Component {
                         value={this.state.num1}
                         onChange={(e) => this.setNum(e, 'num1')}
                     />
-                    {/* <span>+</span> */}
                     <select value={this.state.sign} onChange={(e) => this.setSign(e)}>
                         <option value="+">+</option>
                         <option value="-">−</option>
