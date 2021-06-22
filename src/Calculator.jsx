@@ -11,7 +11,6 @@ export default class Calculator extends Component {
         }
     }
 
-
     setNum = (e, num) => {
         this.setState({ [num]: e.target.value})
     }
@@ -23,8 +22,7 @@ export default class Calculator extends Component {
 
     findSum = (e) => {
         // this.setState({ sum: eval(`${parseFloat(this.state.num1)} ${this.state.sign} ${parseFloat(this.state.num2)}`) })
-        this.setState({ sum: (new Function('return (' + `${parseFloat(this.state.num1)} ${this.state.sign} ${parseFloat(this.state.num2)}` + ')')())
-
+        this.setState({ sum: parseFloat((new Function('return (' + `${parseFloat(this.state.num1)} ${this.state.sign} ${parseFloat(this.state.num2)}` + ')')()).toFixed(3))
         })
     }
 
