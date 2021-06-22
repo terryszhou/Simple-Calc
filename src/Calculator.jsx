@@ -21,6 +21,7 @@ export default class Calculator extends Component {
     }
 
     findSum = (e) => {
+        e.preventDefault()
         // this.setState({ sum: eval(`${parseFloat(this.state.num1)} ${this.state.sign} ${parseFloat(this.state.num2)}`) })
         this.setState({ sum: parseFloat((new Function('return (' + `${parseFloat(this.state.num1)} ${this.state.sign} ${parseFloat(this.state.num2)}` + ')')()).toFixed(3))
         })
@@ -30,28 +31,30 @@ export default class Calculator extends Component {
         return (
             <div class="container">
                 <h1>Add with React!</h1>
-                <div class="add">
-                    <input type="number"
-                        name="num1"
-                        placeholder="Enter your first number"
-                        value={this.state.num1}
-                        onChange={(e) => this.setNum(e, 'num1')}
-                    />
-                    <select value={this.state.sign} onChange={(e) => this.setSign(e)}>
-                        <option value="+">+</option>
-                        <option value="-">−</option>
-                        <option value="*">×</option>
-                        <option value="/">÷</option>
-                    </select>
+                <div class="math-box">
+                    <form onSubmit={(e) => this.findSum(e)}>
+                        <input type="number"
+                            name="num1"
+                            placeholder="Enter your first number"
+                            value={this.state.num1}
+                            onChange={(e) => this.setNum(e, 'num1')}
+                        />
+                        <select value={this.state.sign} onChange={(e) => this.setSign(e)}>
+                            <option value="+">+</option>
+                            <option value="-">−</option>
+                            <option value="*">×</option>
+                            <option value="/">÷</option>
+                        </select>
 
-                    <input type="number"
-                        name="num2"
-                        placeholder="Enter your second number"
-                        value={this.state.num2}
-                        onChange={(e) => this.setNum(e, 'num2')}
-                    />
-                    <button onClick={(e) => this.findSum(e)}>=</button>
-                    <h3>Addition results go here!</h3>
+                        <input type="number"
+                            name="num2"
+                            placeholder="Enter your second number"
+                            value={this.state.num2}
+                            onChange={(e) => this.setNum(e, 'num2')}
+                        />
+                        <button>=</button>
+                    </form>
+                    <h3>Math results go here!</h3>
                     <span class="answer">{this.state.sum}</span>
                 </div>
             </div>
