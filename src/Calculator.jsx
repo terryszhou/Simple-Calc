@@ -1,5 +1,5 @@
 // FUNCTIONAL VERSION
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Calculator = () => {
     const [num1, setNum1] = useState(0)
@@ -9,14 +9,18 @@ const Calculator = () => {
 
     const findSum = (e) => {
         e.preventDefault()
-        setSum(
-            Function (
-                'return ' + `${num1} ${sign} ${num2}`
-            )()
-        )}
+        if (num1 !== "" && num2 !== "") {
+            setSum(
+                Function (`return ${num1} ${sign} ${num2}`)()
+            )  
+        } else {
+            setSum(
+                "Error!"
+            )
+        }
+    }
 
     return (
-        <body>
         <div class="container-box">
             <div class="container">
                 <h1>Math with React!</h1>
@@ -51,7 +55,6 @@ const Calculator = () => {
                 </div>
             </div>
         </div>
-        </body>
     )
 }
 export default Calculator
